@@ -1,5 +1,8 @@
+---
 - name: Update cache and upgrade all packages
-  ansible.builtin.apt:
-    update_cache: yes
-    upgrade: dist  # or 'yes' for a standard upgrade
-  become: yes
+  hosts: all
+  tasks:
+    ansible.builtin.apt:
+      update_cache: yes
+      upgrade: dist  # or 'yes' for a standard upgrade
+    become: yes
