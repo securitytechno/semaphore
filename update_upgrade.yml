@@ -14,5 +14,5 @@
         autoremove: yes
         autoclean: yes
 
-    #- name: Reboot the server and wait for it to return
-    #  ansible.builtin.reboot:
+    - name: Reboot the server and wait for it to return
+      ansible.builtin.reboot:
