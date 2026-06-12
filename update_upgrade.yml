@@ -20,7 +20,7 @@
         autoclean: yes
       register: apt_output
 
-    - name: Display Upgrade messages
+    - name: Display Autoremove messages
       ansible.builtin.debug:
         msg: "{{ apt_output.stdout_lines }}"
 
