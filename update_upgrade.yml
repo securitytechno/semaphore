@@ -10,7 +10,7 @@
         cache_valid_time: 3600  # Only update if cache is older than 1 hour
       register: apt_output
     
-    - name: Display installation messages
+    - name: Display Upgrade messages
       ansible.builtin.debug:
         msg: "{{ apt_output.stdout_lines }}"
 
@@ -18,6 +18,11 @@
       ansible.builtin.apt:
         autoremove: yes
         autoclean: yes
+      register: apt_output
+
+    - name: Display Upgrade messages
+      ansible.builtin.debug:
+        msg: "{{ apt_output.stdout_lines }}"
 
     - name: Check if a reboot is required
       ansible.builtin.stat:
