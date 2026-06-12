@@ -5,14 +5,16 @@
   tasks:
     - name: Update cache and upgrade all packages
       ansible.builtin.apt:
-        msg: "Refresh available packages and upgrade all"
         update_cache: yes
         upgrade: dist  # Options: yes, safe, dist, or full
         cache_valid_time: 3600  # Only update if cache is older than 1 hour
+    
+    - name: Display installation messages
+      ansible.builtin.debug:
+        var: apt_result.msg
 
     - name: Remove unused dependencies
       ansible.builtin.apt:
-        msg: "Remove unused packages"
         autoremove: yes
         autoclean: yes
 
